@@ -14,6 +14,7 @@ const TIMES = [
   "13:00",
   "13:30",
   "14:00",
+  "18:00",
   "18:30",
   "19:00",
   "19:30",
@@ -75,7 +76,7 @@ export function Contact() {
         <Reveal className="text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-terracotta">Localização e Contactos</p>
           <h2 className="mt-4 font-display text-3xl text-foreground sm:text-4xl">
-            Reserve a sua mesa no Porto
+            Reserve a sua mesa em Espinho
           </h2>
           <Ornament className="mt-5" />
         </Reveal>
@@ -172,7 +173,7 @@ export function Contact() {
                     <CalendarCheck className="size-6 text-primary" /> Pedido de reserva
                   </h3>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    Reserve diretamente aqui no site — recebe uma referência imediata e a nossa equipa
+                    Reserve diretamente aqui no site: recebe uma referência imediata e a nossa equipa
                     confirma de seguida.
                   </p>
 
@@ -247,7 +248,7 @@ export function Contact() {
                     <label className="text-sm">
                       <span className="mb-1.5 block font-medium">Ocasião (opcional)</span>
                       <select name="occasion" className={field} defaultValue="">
-                        <option value="">—</option>
+                        <option value="">Sem ocasião especial</option>
                         {OCCASIONS.map((o) => (
                           <option key={o} value={o}>
                             {o}

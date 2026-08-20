@@ -10,7 +10,7 @@ export function Footer() {
           <div>
             <p className="font-display text-2xl text-gold">Indian Palace</p>
             <p className="mt-3 text-sm text-cream/75">
-              Cozinha indiana autêntica no Porto. Receitas de família, especiarias verdadeiras e uma sala
+              Cozinha indiana autêntica em Espinho. Receitas de família, especiarias verdadeiras e uma sala
               feita para ficar.
             </p>
             <div className="mt-5 flex gap-3">
@@ -80,7 +80,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-2 border-t border-cream/15 py-6 text-xs text-cream/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Indian Palace · Porto, Portugal. Todos os direitos reservados.</p>
+          <p>© {new Date().getFullYear()} Indian Palace · Espinho, Portugal. Todos os direitos reservados.</p>
           <p>English spoken · Menu infantil · Esplanada</p>
         </div>
       </div>
