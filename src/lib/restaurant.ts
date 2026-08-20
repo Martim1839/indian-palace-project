@@ -138,7 +138,11 @@ export function validateReservationSlot(
   if (parts.length !== 2 || parts.some((n) => Number.isNaN(n))) {
     return { ok: false, error: "Hora inválida." };
   }
-  const [hours, minutes] = parts;
+  const hours = parts[0] ?? Number.NaN;
+  const minutes = parts[1] ?? Number.NaN;
+  if (Number.isNaN(hours) || Number.isNaN(minutes)) {
+    return { ok: false, error: "Hora inválida." };
+  }
   const slotMinutes = hours * 60 + minutes;
 
   const inSlot = slots.some(([start, end]) => slotMinutes >= start && slotMinutes < end);
