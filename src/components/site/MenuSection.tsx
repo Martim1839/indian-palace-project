@@ -38,7 +38,7 @@ export function MenuSection() {
           </p>
         </Reveal>
 
-        <div className="scrollbar-none -mx-5 mt-10 flex snap-x snap-mandatory gap-2 overflow-x-auto px-5 pb-2 sm:mx-0 sm:flex-wrap sm:justify-center sm:overflow-visible sm:px-0">
+        <div className="[scrollbar-width:none] -mx-5 mt-10 flex snap-x snap-mandatory gap-2 overflow-x-auto px-5 pb-2 sm:mx-0 sm:flex-wrap sm:justify-center sm:overflow-visible sm:px-0">
           {MENU.map((c) => (
             <button
               key={c.id}
