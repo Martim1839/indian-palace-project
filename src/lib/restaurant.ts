@@ -1,0 +1,209 @@
+import heroDish from "@/assets/image-4.png.asset.json";
+import interior from "@/assets/image.png.asset.json";
+import bar from "@/assets/image-2.png.asset.json";
+import samosa from "@/assets/image-3.png.asset.json";
+import kormaAsset from "@/assets/image-5.png.asset.json";
+
+const korma = kormaAsset as { url: string };
+
+import biryani from "@/assets/image-6.png.asset.json";
+import naan from "@/assets/image-7.png.asset.json";
+import wine from "@/assets/image-8.png.asset.json";
+import thali from "@/assets/thali.png.asset.json";
+import cocktail from "@/assets/cocktail.png.asset.json";
+
+export const INFO = {
+  name: "Indian Palace",
+  address: "R. Pedro Homem de Melo, 244 B, 4150-320 Porto, Portugal",
+  phoneDisplay: "+351 22 996 2071",
+  phone: "+351229962071",
+  whatsapp: "351229962071",
+  instagram: "https://www.instagram.com/indianpalace.eu/",
+  facebook: "https://www.facebook.com/indianpalaceporto",
+  mapsEmbed:
+    "https://www.google.com/maps?q=R.%20Pedro%20Homem%20de%20Melo%2C%20244%20B%2C%20Porto%2C%20Portugal&output=embed",
+  mapsLink:
+    "https://www.google.com/maps/search/?api=1&query=R.+Pedro+Homem+de+Melo,+244+B,+Porto,+Portugal",
+  hours: [
+    { day: "Segunda", time: "Fechado" },
+    { day: "Terça a Quinta", time: "12:00 – 15:00 · 18:30 – 23:00" },
+    { day: "Sexta e Sábado", time: "12:00 – 15:00 · 18:30 – 23:30" },
+    { day: "Domingo", time: "12:00 – 15:00 · 18:30 – 23:00" },
+  ],
+};
+
+export const IMAGES = {
+  // hero-01.jpg — prato de assinatura
+  hero: heroDish.url,
+  // sobre-01.jpg — interior / esplanada
+  about: interior.url,
+  gallery: [
+    { src: thali.url, alt: "Mesa completa com curries, biryani e naan", slot: "galeria-01.jpg", span: "wide" },
+    { src: heroDish.url, alt: "Butter Chicken cremoso", slot: "galeria-02.jpg", span: "tall" },
+    { src: interior.url, alt: "Sala de jantar do Indian Palace", slot: "galeria-03.jpg", span: "normal" },
+    { src: biryani.url, alt: "Biryani aromático", slot: "galeria-04.jpg", span: "normal" },
+    { src: samosa.url, alt: "Samosa crocante com salada", slot: "galeria-05.jpg", span: "normal" },
+    { src: cocktail.url, alt: "Cocktail de manga preparado no bar", slot: "galeria-06.jpg", span: "tall" },
+    { src: bar.url, alt: "Bar do restaurante", slot: "galeria-07.jpg", span: "wide" },
+    { src: naan.url, alt: "Naan de alho e coentros", slot: "galeria-08.jpg", span: "normal" },
+    { src: korma.url, alt: "Caril de camarão com côco", slot: "galeria-09.jpg", span: "normal" },
+    { src: wine.url, alt: "Garrafeira e sala vermelha", slot: "galeria-10.jpg", span: "normal" },
+  ],
+};
+
+export const AREAS = [
+  { value: "sala", label: "Sala interior (ar condicionado)" },
+  { value: "esplanada", label: "Esplanada exterior" },
+  { value: "indiferente", label: "Indiferente" },
+];
+
+export const OCCASIONS = [
+  "Jantar romântico",
+  "Refeição em família",
+  "Almoço económico",
+  "Aniversário",
+  "Grupo / empresa",
+  "Outra",
+];
+
+/** Horário em minutos (0 = Domingo) usado no indicador "Aberto agora". */
+export const OPEN_SLOTS: Record<number, Array<[number, number]>> = {
+  0: [
+    [720, 900],
+    [1110, 1380],
+  ],
+  1: [],
+  2: [
+    [720, 900],
+    [1110, 1380],
+  ],
+  3: [
+    [720, 900],
+    [1110, 1380],
+  ],
+  4: [
+    [720, 900],
+    [1110, 1380],
+  ],
+  5: [
+    [720, 900],
+    [1110, 1410],
+  ],
+  6: [
+    [720, 900],
+    [1110, 1410],
+  ],
+};
+
+export const MENU: Array<{
+  id: string;
+  title: string;
+  note?: string;
+  items: Array<{
+    pt: string;
+    orig: string;
+    desc: string;
+    price: string;
+    spice?: 0 | 1 | 2 | 3;
+    veg?: boolean;
+    signature?: boolean;
+  }>;
+}> = [
+  {
+    id: "entradas",
+    title: "Entradas",
+    items: [
+      { pt: "Pastel de legumes", orig: "Vegetable Samosa", desc: "Massa crocante recheada com batata, ervilhas e especiarias.", price: "5,50 €", spice: 1, veg: true },
+      { pt: "Frango marinado no forno de barro", orig: "Chicken Tikka", desc: "Cubos de frango marinados em iogurte e garam masala.", price: "7,90 €", spice: 2 },
+      { pt: "Bolinhos de cebola", orig: "Onion Bhaji", desc: "Cebola em tempura de grão-de-bico com chutney de menta.", price: "5,20 €", spice: 1, veg: true },
+      { pt: "Sopa de lentilhas", orig: "Dal Shorba", desc: "Sopa suave de lentilhas com cominhos e coentros frescos.", price: "4,80 €", spice: 0, veg: true },
+    ],
+  },
+  {
+    id: "curries",
+    title: "Curries",
+    items: [
+      { pt: "Frango na manteiga", orig: "Murgh Makhani · Butter Chicken", desc: "O nosso prato-assinatura: frango tandoori em molho de tomate, manteiga e caju, finalizado com nata.", price: "13,90 €", spice: 1, signature: true },
+      { pt: "Caril de cordeiro picante", orig: "Lamb Rogan Josh", desc: "Cordeiro estufado lentamente com especiarias de Caxemira.", price: "15,50 €", spice: 3 },
+      { pt: "Espinafres com queijo fresco", orig: "Palak Paneer", desc: "Espinafres cremosos com paneer caseiro e alho tostado.", price: "11,90 €", spice: 1, veg: true },
+      { pt: "Caril de camarão com côco", orig: "Prawn Malai Curry", desc: "Camarão em leite de côco, açafrão e limão.", price: "16,90 €", spice: 2 },
+      { pt: "Grão-de-bico à moda de Punjab", orig: "Chana Masala", desc: "Grão-de-bico em molho de tomate, gengibre e amchur.", price: "10,90 €", spice: 2, veg: true },
+    ],
+  },
+  {
+    id: "biryanis",
+    title: "Biryanis",
+    items: [
+      { pt: "Biryani de frango", orig: "Chicken Biryani", desc: "Arroz basmati cozinhado em camadas com frango, açafrão e frutos secos.", price: "13,50 €", spice: 2 },
+      { pt: "Biryani de cordeiro", orig: "Lamb Biryani", desc: "Cordeiro tenro, arroz perfumado e cebola caramelizada.", price: "15,90 €", spice: 2 },
+      { pt: "Biryani de legumes", orig: "Subz Biryani", desc: "Legumes da estação, castanha de caju e hortelã.", price: "11,50 €", spice: 1, veg: true },
+    ],
+  },
+  {
+    id: "tandoori",
+    title: "Tandoori",
+    note: "Grelhados no autêntico forno de barro tandoor",
+    items: [
+      { pt: "Frango tandoori", orig: "Tandoori Murgh", desc: "Meio frango marinado 24h em iogurte e especiarias.", price: "14,50 €", spice: 2 },
+      { pt: "Espetadas de cordeiro", orig: "Seekh Kebab", desc: "Cordeiro picado com hortelã, gengibre e chili.", price: "15,20 €", spice: 3 },
+      { pt: "Queijo fresco tandoori", orig: "Paneer Tikka", desc: "Paneer, pimentos e cebola glaceados no tandoor.", price: "12,50 €", spice: 1, veg: true },
+    ],
+  },
+  {
+    id: "paes",
+    title: "Pães (Naan)",
+    items: [
+      { pt: "Naan simples", orig: "Plain Naan", desc: "Pão folhado cozido no tandoor.", price: "2,80 €", spice: 0, veg: true },
+      { pt: "Naan de alho e coentros", orig: "Garlic Naan", desc: "Manteiga de alho e coentros frescos.", price: "3,50 €", spice: 0, veg: true },
+      { pt: "Naan de queijo", orig: "Cheese Naan", desc: "Recheado com queijo derretido — favorito das crianças.", price: "4,20 €", spice: 0, veg: true },
+      { pt: "Pão folhado integral", orig: "Tandoori Roti", desc: "Farinha de trigo integral, leve e crocante.", price: "2,60 €", spice: 0, veg: true },
+    ],
+  },
+  {
+    id: "sobremesas",
+    title: "Sobremesas",
+    items: [
+      { pt: "Bolinhos em xarope", orig: "Gulab Jamun", desc: "Servidos tépidos em xarope de cardamomo e água de rosas.", price: "4,90 €", veg: true },
+      { pt: "Arroz doce indiano", orig: "Kheer", desc: "Arroz basmati, leite, açafrão e pistácio.", price: "4,50 €", veg: true },
+      { pt: "Gelado de manga", orig: "Mango Kulfi", desc: "Gelado tradicional denso de manga alphonso.", price: "4,90 €", veg: true },
+    ],
+  },
+  {
+    id: "bebidas",
+    title: "Bebidas",
+    items: [
+      { pt: "Lassi de manga", orig: "Mango Lassi", desc: "Iogurte batido com polpa de manga.", price: "4,20 €", veg: true },
+      { pt: "Chá com especiarias", orig: "Masala Chai", desc: "Chá preto com leite, canela e cardamomo.", price: "2,80 €", veg: true },
+      { pt: "Cerveja indiana", orig: "Kingfisher 33cl", desc: "Lager leve, perfeita com pratos picantes.", price: "3,90 €" },
+      { pt: "Vinho da casa (copo)", orig: "Vinho Português", desc: "Seleção de tinto ou branco do Douro.", price: "3,50 €" },
+    ],
+  },
+];
+
+export const REVIEWS = [
+  {
+    name: "David Robson",
+    origin: "Google · Guia local",
+    text: "Viemos por vontade de mudar da comida portuguesa e adorámos. Sendo britânico, boa comida indiana é algo de que sinto falta — este sítio satisfez esse desejo com distinção.",
+  },
+  {
+    name: "ET",
+    origin: "Google",
+    text: "Restaurante indiano incrível! A comida é absolutamente delicioso e cheia de sabor. O butter chicken e o cheese naan são obrigatórios. Ótimo ambiente e equipa simpática.",
+  },
+  {
+    name: "Lúcia Araújo",
+    origin: "Google · Guia local",
+    text: "A minha experiência foi incrível. A comida estava muito boa, o ambiente impecável e a equipa sempre muito simpática.",
+  },
+  {
+    name: "Marta S.",
+    origin: "Google",
+    text: "Magia da Índia presente nos sabores dos pratos. Ambiente acolhedor e romântico, ideal para um jantar a dois.",
+  },
+  {
+    name: "Rui P.",
+    origin: "Google",
+    text: "Tudo de muito boa qualidade e bem feito, colaboradores sempre simpáticos. Excelente relação qualidade-preço.",
+  },
+];
