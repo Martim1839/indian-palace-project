@@ -38,17 +38,18 @@ export function MenuSection() {
           </p>
         </Reveal>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-2">
+        <div className="scrollbar-none -mx-5 mt-10 flex snap-x snap-mandatory gap-2 overflow-x-auto px-5 pb-2 sm:mx-0 sm:flex-wrap sm:justify-center sm:overflow-visible sm:px-0">
           {MENU.map((c) => (
             <button
               key={c.id}
               type="button"
               onClick={() => setActive(c.id)}
+              aria-pressed={active === c.id}
               className={cn(
-                "rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 active:scale-95",
+                "shrink-0 snap-center rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-95",
                 active === c.id
-                  ? "bg-spice text-primary-foreground shadow-warm"
-                  : "border border-border bg-card text-muted-foreground hover:border-gold hover:text-foreground",
+                  ? "scale-105 bg-spice text-primary-foreground shadow-lift"
+                  : "border border-border bg-card text-muted-foreground hover:-translate-y-0.5 hover:border-gold hover:text-foreground hover:shadow-warm",
               )}
             >
               {c.title}
@@ -57,7 +58,7 @@ export function MenuSection() {
         </div>
 
         <div key={category.id}>
-          <p className="animate-menu-enter mt-6 text-center text-xs uppercase tracking-[0.2em] text-terracotta">
+          <p className="animate-dish-in mt-6 text-center text-xs uppercase tracking-[0.2em] text-terracotta">
             {category.note ? `${category.note} · ` : ""}
             {category.items.length} {category.items.length === 1 ? "prato" : "pratos"}
           </p>
@@ -66,9 +67,9 @@ export function MenuSection() {
             {category.items.map((item, i) => (
               <article
                 key={item.orig}
-                style={{ animationDelay: `${i * 70}ms` }}
+                style={{ animationDelay: `${80 + i * 90}ms` }}
                 className={cn(
-                  "animate-menu-enter group h-full rounded-3xl border p-6 transition-all duration-300 hover:-translate-y-1",
+                  "animate-dish-in group h-full rounded-3xl border p-6 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:scale-[1.01]",
                   item.signature
                     ? "border-gold/60 bg-deep text-cream shadow-lift"
                     : "border-border bg-card shadow-warm hover:shadow-lift",
