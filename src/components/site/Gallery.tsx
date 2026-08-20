@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { IMAGES } from "@/lib/restaurant";
-import { cn } from "@/lib/utils";
 import { Reveal, Ornament } from "./Reveal";
 
 export function Gallery() {
@@ -39,32 +38,25 @@ export function Gallery() {
           </p>
         </Reveal>
 
-        <div className="mx-auto mt-10 grid max-w-5xl auto-rows-[180px] grid-cols-2 justify-center gap-3 sm:auto-rows-[210px] md:grid-cols-4">
+        <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {photos.map((img, i) => (
-            <Reveal
-              key={img.slot}
-              delay={i * 50}
-              className={cn(
-                "h-full",
-                img.span === "tall" && "row-span-2",
-                img.span === "wide" && "col-span-2",
-              )}
-            >
+            <Reveal key={img.slot} delay={i * 50} className="h-full">
               <button
                 type="button"
                 onClick={() => setActive(i)}
                 aria-label={`Ver foto: ${img.alt}`}
-                className="group relative block size-full overflow-hidden rounded-2xl shadow-warm outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="group relative block aspect-[4/3] w-full overflow-hidden rounded-2xl bg-secondary shadow-warm outline-none transition-shadow duration-300 hover:shadow-lift focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <img
                   src={img.src}
                   alt={img.alt}
                   loading="lazy"
                   decoding="async"
-                  className="size-full object-cover object-center transition-transform duration-700 [image-rendering:auto] group-hover:scale-105"
+                  className="size-full object-contain object-center transition-transform duration-700 group-hover:scale-105"
                 />
-                <span className="absolute inset-0 grid place-items-center bg-deep/45 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <span className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-deep/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <ZoomIn className="size-6 text-gold" />
+                  <span className="px-4 text-center text-xs text-cream/90">{img.alt}</span>
                 </span>
               </button>
             </Reveal>
