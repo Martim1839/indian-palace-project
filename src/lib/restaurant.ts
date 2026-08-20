@@ -14,40 +14,40 @@ import cocktail from "@/assets/cocktail.png.asset.json";
 
 export const INFO = {
   name: "Indian Palace",
-  address: "R. Pedro Homem de Melo, 244 B, 4150-320 Porto, Portugal",
+  address: "Av. 8, 832, 4500-207 Espinho, Portugal",
   phoneDisplay: "+351 22 996 2071",
   phone: "+351229962071",
   whatsapp: "351229962071",
   instagram: "https://www.instagram.com/indianpalace.eu/",
   facebook: "https://www.facebook.com/indianpalaceporto",
   mapsEmbed:
-    "https://www.google.com/maps?q=R.%20Pedro%20Homem%20de%20Melo%2C%20244%20B%2C%20Porto%2C%20Portugal&output=embed",
+    "https://www.google.com/maps?q=Indian%20Palace%2C%20Av.%208%20832%2C%204500-207%20Espinho%2C%20Portugal&output=embed",
   mapsLink:
-    "https://www.google.com/maps/search/?api=1&query=R.+Pedro+Homem+de+Melo,+244+B,+Porto,+Portugal",
+    "https://www.google.com/maps/search/?api=1&query=Indian+Palace,+Av.+8+832,+4500-207+Espinho,+Portugal",
   hours: [
     { day: "Segunda", time: "Fechado" },
-    { day: "Terça a Quinta", time: "12:00 – 15:00 · 18:30 – 23:00" },
-    { day: "Sexta e Sábado", time: "12:00 – 15:00 · 18:30 – 23:30" },
-    { day: "Domingo", time: "12:00 – 15:00 · 18:30 – 23:00" },
+    { day: "Terça a Quinta", time: "12:00 – 15:00 · 18:00 – 23:00" },
+    { day: "Sexta e Sábado", time: "12:00 – 15:00 · 18:00 – 23:30" },
+    { day: "Domingo", time: "12:00 – 15:00 · 18:00 – 23:00" },
   ],
 };
 
 export const IMAGES = {
-  // hero-01.jpg — prato de assinatura
+  // hero-01.jpg: prato de assinatura
   hero: heroDish.url,
-  // sobre-01.jpg — interior / esplanada
+  // sobre-01.jpg: interior / esplanada
   about: interior.url,
   gallery: [
-    { src: thali.url, alt: "Mesa completa com curries, biryani e naan", slot: "galeria-01.jpg", span: "wide" },
-    { src: heroDish.url, alt: "Butter Chicken cremoso", slot: "galeria-02.jpg", span: "tall" },
-    { src: interior.url, alt: "Sala de jantar do Indian Palace", slot: "galeria-03.jpg", span: "normal" },
-    { src: biryani.url, alt: "Biryani aromático", slot: "galeria-04.jpg", span: "normal" },
-    { src: samosa.url, alt: "Samosa crocante com salada", slot: "galeria-05.jpg", span: "normal" },
-    { src: cocktail.url, alt: "Cocktail de manga preparado no bar", slot: "galeria-06.jpg", span: "tall" },
-    { src: bar.url, alt: "Bar do restaurante", slot: "galeria-07.jpg", span: "wide" },
-    { src: naan.url, alt: "Naan de alho e coentros", slot: "galeria-08.jpg", span: "normal" },
-    { src: korma.url, alt: "Caril de camarão com côco", slot: "galeria-09.jpg", span: "normal" },
-    { src: wine.url, alt: "Garrafeira e sala vermelha", slot: "galeria-10.jpg", span: "normal" },
+    { src: thali.url, alt: "Mesa completa com curries, biryani e naan", slot: "galeria-01.jpg" },
+    { src: heroDish.url, alt: "Butter Chicken cremoso", slot: "galeria-02.jpg" },
+    { src: interior.url, alt: "Sala de jantar do Indian Palace", slot: "galeria-03.jpg" },
+    { src: biryani.url, alt: "Biryani aromático", slot: "galeria-04.jpg" },
+    { src: samosa.url, alt: "Samosa crocante com salada", slot: "galeria-05.jpg" },
+    { src: cocktail.url, alt: "Cocktail de manga preparado no bar", slot: "galeria-06.jpg" },
+    { src: bar.url, alt: "Bar do restaurante", slot: "galeria-07.jpg" },
+    { src: naan.url, alt: "Naan de alho e coentros", slot: "galeria-08.jpg" },
+    { src: korma.url, alt: "Caril de camarão com côco", slot: "galeria-09.jpg" },
+    { src: wine.url, alt: "Garrafeira e sala vermelha", slot: "galeria-10.jpg" },
   ],
 };
 
@@ -70,28 +70,28 @@ export const OCCASIONS = [
 export const OPEN_SLOTS: Record<number, Array<[number, number]>> = {
   0: [
     [720, 900],
-    [1110, 1380],
+    [1080, 1380],
   ],
   1: [],
   2: [
     [720, 900],
-    [1110, 1380],
+    [1080, 1380],
   ],
   3: [
     [720, 900],
-    [1110, 1380],
+    [1080, 1380],
   ],
   4: [
     [720, 900],
-    [1110, 1380],
+    [1080, 1380],
   ],
   5: [
     [720, 900],
-    [1110, 1410],
+    [1080, 1410],
   ],
   6: [
     [720, 900],
-    [1110, 1410],
+    [1080, 1410],
   ],
 };
 
@@ -221,7 +221,7 @@ export const MENU: Array<{
     items: [
       { pt: "Naan simples", orig: "Plain Naan", desc: "Pão folhado cozido no tandoor.", price: "2,80 €", spice: 0, veg: true },
       { pt: "Naan de alho e coentros", orig: "Garlic Naan", desc: "Manteiga de alho e coentros frescos.", price: "3,50 €", spice: 0, veg: true },
-      { pt: "Naan de queijo", orig: "Cheese Naan", desc: "Recheado com queijo derretido — favorito das crianças.", price: "4,20 €", spice: 0, veg: true },
+      { pt: "Naan de queijo", orig: "Cheese Naan", desc: "Recheado com queijo derretido, favorito das crianças.", price: "4,20 €", spice: 0, veg: true },
       { pt: "Pão folhado integral", orig: "Tandoori Roti", desc: "Farinha de trigo integral, leve e crocante.", price: "2,60 €", spice: 0, veg: true },
     ],
   },
@@ -250,7 +250,7 @@ export const REVIEWS = [
   {
     name: "David Robson",
     origin: "Google · Guia local",
-    text: "Viemos por vontade de mudar da comida portuguesa e adorámos. Sendo britânico, boa comida indiana é algo de que sinto falta — este sítio satisfez esse desejo com distinção.",
+    text: "Viemos por vontade de mudar da comida portuguesa e adorámos. Sendo britânico, boa comida indiana é algo de que sinto falta, e este sítio satisfez esse desejo com distinção.",
   },
   {
     name: "ET",
@@ -258,9 +258,9 @@ export const REVIEWS = [
     text: "Restaurante indiano incrível! A comida é absolutamente delicioso e cheia de sabor. O butter chicken e o cheese naan são obrigatórios. Ótimo ambiente e equipa simpática.",
   },
   {
-    name: "Lúcia Araújo",
+    name: "Lúcia Araujo",
     origin: "Google · Guia local",
-    text: "A minha experiência foi incrível. A comida estava muito boa, o ambiente impecável e a equipa sempre muito simpática.",
+    text: "Experimentem o novo restaurante de comida indiana de Espinho! A minha experiência foi incrível. A comida estava muito boa, o ambiente impecável e a equipa sempre muito simpática.",
   },
   {
     name: "Marta S.",

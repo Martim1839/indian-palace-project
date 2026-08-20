@@ -11,7 +11,7 @@ const BADGES = [
 export function Hero() {
   return (
     <section id="top" className="relative flex min-h-[100svh] items-center overflow-hidden">
-      {/* hero-01.jpg — substituir por foto real do prato de assinatura */}
+      {/* hero-01.jpg: substituir por foto real do prato de assinatura */}
       <img
         src={IMAGES.hero}
         alt="Butter Chicken servido no Indian Palace"
@@ -22,7 +22,7 @@ export function Hero() {
 
       <div className="relative mx-auto w-full max-w-4xl px-5 pb-16 pt-28 text-center">
         <p className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-black/30 px-4 py-1.5 text-xs uppercase tracking-[0.28em] text-gold">
-          <Star className="size-3.5 fill-gold" /> 4,9 · 40 avaliações
+          <Star className="size-3.5 fill-gold" /> 4,9 · 41 avaliações
         </p>
         <h1 className="mt-6 font-display text-4xl leading-tight text-cream sm:text-6xl md:text-7xl">
           Os Sabores Autênticos <span className="block text-gold">da Índia</span>
@@ -30,7 +30,7 @@ export function Hero() {
         <Ornament className="mt-6" />
         <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-cream/85 sm:text-lg">
           Receitas de família passadas de geração em geração, especiarias moídas todos os dias e o calor
-          do forno tandoor — no coração do Porto.
+          do forno tandoor, no centro de Espinho.
         </p>
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a

@@ -14,23 +14,23 @@ export function About() {
           <Ornament className="mt-6 justify-start" />
           <div className="mt-6 space-y-4 text-[0.98rem] leading-relaxed text-muted-foreground">
             <p>
-              O Indian Palace nasceu do desejo de trazer ao Porto a cozinha que aprendemos em casa: caris
+              O Indian Palace nasceu do desejo de trazer a Espinho a cozinha que aprendemos em casa: caris
               lentamente estufados, massalas tostadas na hora e pão saído do forno de barro ao ritmo da sala.
             </p>
             <p>
-              Cada receita chegou até nós de geração em geração — do Punjab a Caxemira, da costa do Kerala às
+              Cada receita chegou até nós de geração em geração, do Punjab a Caxemira, da costa do Kerala às
               ruas de Hyderabad. Nada de atalhos: gengibre, alho e coentros frescos todos os dias, e o
               equilíbrio de picante ajustado ao seu gosto.
             </p>
             <p>
               Recebemos-lhe numa sala íntima de luz quente, com esplanada exterior para as noites amenas e
-              espaço para toda a família — incluindo menu infantil e equipa que fala inglês.
+              espaço para toda a família, incluindo menu infantil e equipa que fala inglês.
             </p>
           </div>
           <div className="mt-8 grid grid-cols-3 gap-4">
             {[
               { k: "20+", v: "Receitas de família" },
-              { k: "4,9★", v: "Avaliação Google" },
+              { k: "4,9★", v: "41 avaliações Google" },
               { k: "15–35 €", v: "Por pessoa" },
             ].map((s) => (
               <div key={s.k} className="rounded-2xl border border-border bg-card p-4 text-center shadow-warm">
@@ -42,7 +42,7 @@ export function About() {
         </Reveal>
 
         <Reveal delay={120} className="relative">
-          {/* sobre-01.jpg — substituir por foto real do interior/esplanada */}
+          {/* sobre-01.jpg: substituir por foto real do interior/esplanada */}
           <img
             src={IMAGES.about}
             alt="Sala de jantar do Indian Palace com mesas postas"

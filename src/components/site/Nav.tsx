@@ -72,7 +72,7 @@ export function Nav() {
             </span>
             <span className="leading-tight">
               <span className="block font-display text-lg tracking-wide text-cream">Indian Palace</span>
-              <span className="block text-[0.65rem] uppercase tracking-[0.28em] text-gold">Porto · Índia</span>
+              <span className="block text-[0.65rem] uppercase tracking-[0.28em] text-gold">Espinho · Índia</span>
             </span>
             <ChevronDown
               className={cn("size-4 text-gold transition-transform duration-300", logoOpen && "rotate-180")}

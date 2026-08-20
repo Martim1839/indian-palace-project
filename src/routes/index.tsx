@@ -13,17 +13,17 @@ import { Chatbot } from "@/components/site/Chatbot";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Indian Palace Porto | Cozinha Indiana Autêntica" },
+      { title: "Indian Palace Espinho | Cozinha Indiana Autêntica" },
       {
         name: "description",
         content:
-          "Restaurante indiano autêntico no Porto: curries, biryanis e tandoori. Butter Chicken de assinatura, esplanada e reservas rápidas por WhatsApp.",
+          "Restaurante indiano autêntico em Espinho: curries, biryanis e tandoori. Butter Chicken de assinatura, take away e reserva de mesa online.",
       },
-      { property: "og:title", content: "Indian Palace Porto | Cozinha Indiana Autêntica" },
+      { property: "og:title", content: "Indian Palace Espinho | Cozinha Indiana Autêntica" },
       {
         property: "og:description",
         content:
-          "Especiarias verdadeiras, receitas de família e ambiente acolhedor na R. Pedro Homem de Melo, Porto. Reserve a sua mesa.",
+          "Especiarias verdadeiras, receitas de família e ambiente acolhedor na Av. 8, 832, Espinho. Reserve a sua mesa.",
       },
       { property: "og:type", content: "restaurant.restaurant" },
       { name: "twitter:card", content: "summary_large_image" },

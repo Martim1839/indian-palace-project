@@ -17,7 +17,7 @@ export function Reviews() {
                 <Star key={i} className="size-4 fill-gold text-gold" />
               ))}
             </span>
-            4,9 de 5 · 40 avaliações no Google
+            4,9 de 5 · 41 avaliações no Google
           </p>
         </Reveal>
 
