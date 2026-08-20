@@ -55,7 +55,7 @@ export function Nav() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
         scrolled
-          ? "bg-deep shadow-lift"
+          ? "bg-[var(--plum)] bg-deep shadow-lift"
           : "bg-gradient-to-b from-black/70 via-black/40 to-transparent",
       )}
     >
@@ -181,7 +181,7 @@ export function Nav() {
       </nav>
 
       {open ? (
-        <div className="border-t border-gold/20 bg-deep/98 px-5 pb-6 pt-2 lg:hidden">
+        <div className="border-t border-gold/20 bg-[var(--plum)] bg-deep px-5 pb-6 pt-2 lg:hidden">
           {LINKS.map((l) => (
             <a
               key={l.href}
