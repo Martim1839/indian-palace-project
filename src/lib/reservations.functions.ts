@@ -1,9 +1,15 @@
 import { createServerFn } from "@tanstack/react-start";
 import { reservationSchema } from "./reservations-schema";
+import { validateReservationSlot } from "./restaurant";
 
 export const createReservation = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => reservationSchema.parse(data))
   .handler(async ({ data }) => {
+    const slot = validateReservationSlot(data.date, data.time);
+    if (!slot.ok) {
+      return { ok: false as const, error: slot.error };
+    }
+
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { data: row, error } = await supabaseAdmin
       .from("reservations")
@@ -23,7 +29,7 @@ export const createReservation = createServerFn({ method: "POST" })
 
     if (error || !row) {
       console.error("Falha ao registar reserva:", error?.message);
-      return { ok: false as const };
+      return { ok: false as const, error: "Não foi possível registar a reserva. Tente novamente." };
     }
     return { ok: true as const, reference: row.reference };
   });

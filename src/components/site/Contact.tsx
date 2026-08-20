@@ -54,7 +54,7 @@ export function Contact() {
     try {
       const result = await submitReservation({ data: d });
       if (!result.ok) {
-        toast.error("Não foi possível enviar o pedido. Tente novamente ou ligue-nos.");
+        toast.error(result.error || "Não foi possível enviar o pedido. Tente novamente ou ligue-nos.");
         return;
       }
       setDone({ reference: result.reference, date: d.date, time: d.time, people: d.people });
