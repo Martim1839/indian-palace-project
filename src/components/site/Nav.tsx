@@ -35,7 +35,7 @@ export function Nav() {
   const [logoOpen, setLogoOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -54,7 +54,9 @@ export function Nav() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-        scrolled ? "bg-deep/95 shadow-warm backdrop-blur-md" : "bg-gradient-to-b from-black/55 to-transparent",
+        scrolled
+          ? "bg-deep shadow-lift"
+          : "bg-gradient-to-b from-black/70 via-black/40 to-transparent",
       )}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">

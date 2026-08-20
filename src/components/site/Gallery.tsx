@@ -52,7 +52,7 @@ export function Gallery() {
                   alt={img.alt}
                   loading="lazy"
                   decoding="async"
-                  className="size-full object-contain object-center transition-transform duration-700 group-hover:scale-105"
+                  className="size-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 />
                 <span className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-deep/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <ZoomIn className="size-6 text-gold" />
