@@ -276,4 +276,9 @@ export const REVIEWS = [
     origin: "Google",
     text: "Tudo de muito boa qualidade e bem feito, colaboradores sempre simpáticos. Excelente relação qualidade-preço.",
   },
+  {
+    name: "Sofia Almeida",
+    origin: "Google",
+    text: "Fomos jantar em família e saímos todos rendidos. O cordeiro estava tenro e o naan de queijo desapareceu num instante. Já reservámos outra vez.",
+  },
 ];
