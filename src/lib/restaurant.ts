@@ -95,6 +95,72 @@ export const OPEN_SLOTS: Record<number, Array<[number, number]>> = {
   ],
 };
 
+/**
+ * Valida se uma data/hora de reserva está dentro do horário de funcionamento.
+ * Usa UTC para o cálculo do dia da semana: todos os horários do formulário
+ * são entre 12:00 e 22:00, pelo que coincidem sempre com o dia de Lisboa.
+ */
+export function validateReservationSlot(
+  dateStr: string,
+  timeStr: string,
+): { ok: boolean; error?: string } {
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+  const reservationDate = new Date(`${dateStr}T00:00:00.000Z`);
+  if (Number.isNaN(reservationDate.getTime())) {
+    return { ok: false, error: "Data inválida." };
+  }
+
+  const selectedDay = new Date(
+    reservationDate.getUTCFullYear(),
+    reservationDate.getUTCMonth(),
+    reservationDate.getUTCDate(),
+  );
+
+  if (selectedDay < today) {
+    return { ok: false, error: "A data da reserva não pode estar no passado." };
+  }
+
+  const maxDay = new Date(today);
+  maxDay.setDate(maxDay.getDate() + 90);
+  if (selectedDay > maxDay) {
+    return { ok: false, error: "As reservas só podem ser feitas com até 90 dias de antecedência." };
+  }
+
+  const day = reservationDate.getUTCDay();
+  const slots = OPEN_SLOTS[day];
+  if (!slots || slots.length === 0) {
+    return { ok: false, error: "O restaurante está fechado neste dia." };
+  }
+
+  const parts = timeStr.split(":").map((p) => Number.parseInt(p, 10));
+  if (parts.length !== 2 || parts.some((n) => Number.isNaN(n))) {
+    return { ok: false, error: "Hora inválida." };
+  }
+  const [hours, minutes] = parts;
+  const slotMinutes = hours * 60 + minutes;
+
+  const inSlot = slots.some(([start, end]) => slotMinutes >= start && slotMinutes < end);
+  if (!inSlot) {
+    return { ok: false, error: "A hora escolhida está fora do horário de funcionamento." };
+  }
+
+  if (selectedDay.getTime() === today.getTime()) {
+    const reservationTime = new Date(today);
+    reservationTime.setHours(hours, minutes, 0, 0);
+    const minAdvance = new Date(now.getTime() + 2 * 60 * 60 * 1000);
+    if (reservationTime < minAdvance) {
+      return {
+        ok: false,
+        error: "As reservas para hoje devem ser feitas com pelo menos 2 horas de antecedência.",
+      };
+    }
+  }
+
+  return { ok: true };
+}
+
 export const MENU: Array<{
   id: string;
   title: string;
